@@ -1,0 +1,7 @@
+city,venue_category,entropy_type,n,success,error
+US - new_york,food_dining,birth,15000,False,Not yet implemented for multiple bandwidths
+US - new_york,entertainment_recreation,birth,9248,False,Not yet implemented for multiple bandwidths
+US - new_york,accommodation_travel,birth,4131,False,Not yet implemented for multiple bandwidths
+US - new_york,education_higher,birth,683,False,Not yet implemented for multiple bandwidths
+US - new_york,civic_community,birth,786,False,Not yet implemented for multiple bandwidths
+US - new_york,other,birth,15000,False,Not yet implemented for multiple bandwidths

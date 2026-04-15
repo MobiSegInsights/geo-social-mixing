@@ -1,0 +1,169 @@
+{
+  "parameters": {
+    "max_walk_time": 15,
+    "max_trip_duration": 45,
+    "walk_speed": 4.5,
+    "departure_datetime": "2026-03-17 08:00:00",
+    "time_window": 15,
+    "percentiles": [
+      50
+    ]
+  },
+  "cities": {
+    "new_york": {
+      "transport_network_dir": "dbs/gtfs/new_york",
+      "poi_file": "dbs/routing/new_york_poi_locations.csv",
+      "output_dir": "dbs/routing/new_york"
+    },
+    "new_york_minimal": {
+      "transport_network_dir": "dbs/gtfs/new_york_minimal",
+      "poi_file": "dbs/routing/new_york_poi_locations.csv",
+      "output_dir": "dbs/routing/new_york_minimal"
+    },
+    "chicago": {
+      "transport_network_dir": "dbs/gtfs/chicago",
+      "poi_file": "dbs/routing/chicago_poi_locations.csv",
+      "output_dir": "dbs/routing/chicago"
+    },
+    "washington_dc": {
+      "transport_network_dir": "dbs/gtfs/washington_dc",
+      "poi_file": "dbs/routing/washington_dc_poi_locations.csv",
+      "output_dir": "dbs/routing/washington_dc"
+    },
+    "houston": {
+      "transport_network_dir": "dbs/gtfs/houston",
+      "poi_file": "dbs/routing/houston_poi_locations.csv",
+      "output_dir": "dbs/routing/houston"
+    },
+    "atlanta": {
+      "transport_network_dir": "dbs/gtfs/atlanta",
+      "poi_file": "dbs/routing/atlanta_poi_locations.csv",
+      "output_dir": "dbs/routing/atlanta"
+    },
+    "phoenix": {
+      "transport_network_dir": "dbs/gtfs/phoenix",
+      "poi_file": "dbs/routing/phoenix_poi_locations.csv",
+      "output_dir": "dbs/routing/phoenix"
+    },
+    "sweden_c01": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_01",
+      "poi_file": "dbs/routing/sweden_c01/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c01",
+      "destinations_file": "dbs/routing/sweden_c01/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c03": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_03",
+      "poi_file": "dbs/routing/sweden_c03/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c03",
+      "destinations_file": "dbs/routing/sweden_c03/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c04": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_04",
+      "poi_file": "dbs/routing/sweden_c04/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c04",
+      "destinations_file": "dbs/routing/sweden_c04/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c05": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_05",
+      "poi_file": "dbs/routing/sweden_c05/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c05",
+      "destinations_file": "dbs/routing/sweden_c05/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c06": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_06",
+      "poi_file": "dbs/routing/sweden_c06/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c06",
+      "destinations_file": "dbs/routing/sweden_c06/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c07": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_07",
+      "poi_file": "dbs/routing/sweden_c07/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c07",
+      "destinations_file": "dbs/routing/sweden_c07/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c08": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_08",
+      "poi_file": "dbs/routing/sweden_c08/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c08",
+      "destinations_file": "dbs/routing/sweden_c08/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c09": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_09",
+      "poi_file": "dbs/routing/sweden_c09/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c09",
+      "destinations_file": "dbs/routing/sweden_c09/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c10": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_10",
+      "poi_file": "dbs/routing/sweden_c10/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c10",
+      "destinations_file": "dbs/routing/sweden_c10/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c12": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_12",
+      "poi_file": "dbs/routing/sweden_c12/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c12",
+      "destinations_file": "dbs/routing/sweden_c12/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c13": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_13",
+      "poi_file": "dbs/routing/sweden_c13/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c13",
+      "destinations_file": "dbs/routing/sweden_c13/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c14": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_14",
+      "poi_file": "dbs/routing/sweden_c14/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c14",
+      "destinations_file": "dbs/routing/sweden_c14/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c17": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_17",
+      "poi_file": "dbs/routing/sweden_c17/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c17",
+      "destinations_file": "dbs/routing/sweden_c17/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c18": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_18",
+      "poi_file": "dbs/routing/sweden_c18/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c18",
+      "destinations_file": "dbs/routing/sweden_c18/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    },
+    "sweden_c19": {
+      "transport_network_dir": "dbs/gtfs/sweden_south/c_19",
+      "poi_file": "dbs/routing/sweden_c19/poi_locations.csv",
+      "output_dir": "dbs/routing/sweden_c19",
+      "destinations_file": "dbs/routing/sweden_c19/deso_centroids.csv",
+      "timezone": "Europe/Stockholm",
+      "departure_datetime": "2024-03-12 08:00:00"
+    }
+  }
+}

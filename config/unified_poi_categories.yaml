@@ -1,0 +1,309 @@
+# Unified POI Category Schema for Cross-Country Comparison
+# Sweden (GPS-based visits) vs USA (SafeGraph foot traffic)
+#
+# Design principles:
+# 1. Categories must be comparable across countries
+# 2. Focus on venues relevant for social mixing analysis
+# 3. Exclude transit infrastructure (Sweden-only, different data source)
+# 4. Minimum 10 categories, maximum 15
+#
+# Created: 2026-03-06
+# Based on: notebooks/07_poi_category_alignment.ipynb analysis
+
+# ============================================================================
+# UNIFIED CATEGORIES (12 categories)
+# ============================================================================
+
+unified_categories:
+
+  # 1. FOOD & DINING
+  # Primary social mixing venues - restaurants, cafes, bars
+  food_dining:
+    description: "Restaurants, cafes, bars, and food establishments"
+    includes:
+      - "Restaurants and Other Eating Places"
+      - "Drinking Places (Alcoholic Beverages)"
+      - "Bakeries and Tortilla Manufacturing"
+      - "Specialty Food Stores"
+      - "Grocery Stores"
+    notes: "Core social mixing venue type"
+
+  # 2. RETAIL - GENERAL
+  # Shopping venues where diverse populations mix
+  retail_general:
+    description: "General merchandise and department stores"
+    includes:
+      - "General Merchandise Stores, including Warehouse Clubs and Supercenters"
+      - "Department Stores"
+      - "Other Miscellaneous Store Retailers"
+      - "Used Merchandise Stores"
+      - "Electronic Shopping and Mail-Order Houses"
+    notes: "Large retail draws diverse catchment"
+
+  # 3. RETAIL - SPECIALTY
+  # Smaller specialty retail
+  retail_specialty:
+    description: "Clothing, electronics, home goods, specialty shops"
+    includes:
+      - "Clothing Stores"
+      - "Shoe Stores"
+      - "Electronics and Appliance Stores"
+      - "Home Furnishings Stores"
+      - "Furniture Stores"
+      - "Jewelry, Luggage, and Leather Goods Stores"
+      - "Sporting Goods, Hobby, and Musical Instrument Stores"
+      - "Office Supplies, Stationery, and Gift Stores"
+      - "Book Stores and News Dealers"
+      - "Beer, Wine, and Liquor Stores"
+      - "Lawn and Garden Equipment and Supplies Stores"
+      - "Building Material and Supplies Dealers"
+    notes: "Specialty retail, often neighborhood-serving"
+
+  # 4. PERSONAL SERVICES
+  # Service establishments
+  personal_services:
+    description: "Personal care, dry cleaning, repair services"
+    includes:
+      - "Personal Care Services"
+      - "Drycleaning and Laundry Services"
+      - "Other Personal Services"
+      - "Death Care Services"
+      - "Personal and Household Goods Repair and Maintenance"
+    notes: "Regular service visits, neighborhood-level mixing"
+
+  # 5. PHARMACY & DRUG STORES (healthcare providers excluded - HIPAA)
+  # US SafeGraph does not include healthcare provider visits
+  pharmacy_retail:
+    description: "Pharmacies, drug stores, health/personal care retail"
+    includes:
+      - "Health and Personal Care Stores"
+    excludes:
+      - "Offices of Physicians"  # Not in US data (HIPAA)
+      - "Offices of Dentists"  # Not in US data (HIPAA)
+      - "Offices of Other Health Practitioners"  # Not in US data
+      - "Outpatient Care Centers"  # Not in US data
+      - "General Medical and Surgical Hospitals"  # Not in US data
+      - "All other healthcare providers"  # Not in US data
+    notes: "Only pharmacies/drug stores - healthcare providers excluded for HIPAA privacy"
+
+  # 6. ENTERTAINMENT & RECREATION
+  # Leisure and entertainment venues
+  entertainment_recreation:
+    description: "Movies, sports, parks, amusement, fitness"
+    includes:
+      - "Motion Picture and Video Industries"
+      - "Performing Arts Companies"
+      - "Spectator Sports"
+      - "Museums, Historical Sites, and Similar Institutions"
+      - "Amusement Parks and Arcades"
+      - "Other Amusement and Recreation Industries"
+      - "RV (Recreational Vehicle) Parks and Recreational Camps"
+      - "Gambling Industries"
+      - "Promoters of Performing Arts, Sports, and Similar Events"
+    notes: "Destination venues that draw from wide catchments"
+
+  # 7. ACCOMMODATION & TRAVEL
+  # Hotels, travel agencies, tourism
+  accommodation_travel:
+    description: "Hotels, motels, travel services"
+    includes:
+      - "Traveler Accommodation"
+      - "Travel Arrangement and Reservation Services"
+      - "Scenic and Sightseeing Transportation, Water"
+      - "Scenic and Sightseeing Transportation, Land"
+      - "Scenic and Sightseeing Transportation, Other"
+    notes: "Tourism-related, may show different patterns"
+
+  # 8. FINANCIAL SERVICES
+  # Banks, credit unions, insurance
+  financial_services:
+    description: "Banks, credit unions, insurance, financial advisors"
+    includes:
+      - "Depository Credit Intermediation"
+      - "Nondepository Credit Intermediation"
+      - "Activities Related to Credit Intermediation"
+      - "Insurance Carriers"
+      - "Agencies, Brokerages, and Other Insurance Related Activities"
+      - "Securities and Commodity Contracts Intermediation and Brokerage"
+      - "Other Financial Investment Activities"
+    notes: "Banking access, equity implications"
+
+  # 9. PROFESSIONAL SERVICES
+  # Office-based professional services
+  professional_services:
+    description: "Legal, accounting, consulting, tech services"
+    includes:
+      - "Legal Services"
+      - "Accounting, Tax Preparation, Bookkeeping, and Payroll Services"
+      - "Architectural, Engineering, and Related Services"
+      - "Specialized Design Services"
+      - "Computer Systems Design and Related Services"
+      - "Management, Scientific, and Technical Consulting Services"
+      - "Advertising, Public Relations, and Related Services"
+      - "Other Professional, Scientific, and Technical Services"
+      - "Scientific Research and Development Services"
+    notes: "Primarily workplace destinations"
+
+  # 10. AUTOMOTIVE
+  # Car-related services
+  automotive:
+    description: "Gas stations, auto dealers, repair shops"
+    includes:
+      - "Gasoline Stations"
+      - "Automobile Dealers"
+      - "Other Motor Vehicle Dealers"
+      - "Automotive Parts, Accessories, and Tire Stores"
+      - "Automotive Repair and Maintenance"
+      - "Automotive Equipment Rental and Leasing"
+    notes: "Expected to be much larger in US cities"
+
+  # 11. HIGHER EDUCATION (K-12 excluded for cross-country comparability)
+  # US SafeGraph does not include K-12 schools or childcare
+  education_higher:
+    description: "Colleges, universities, vocational training"
+    includes:
+      - "Colleges, Universities, and Professional Schools"
+      - "Junior Colleges"
+      - "Technical and Trade Schools"
+      - "Other Schools and Instruction"
+      - "Educational Support Services"
+    excludes:
+      - "Elementary and Secondary Schools"  # Not in US data
+      - "Child Day Care Services"  # Not in US data
+    notes: "Higher education only - K-12 excluded because US SafeGraph lacks these categories"
+
+  # 12. CIVIC & COMMUNITY
+  # Community organizations, government, religious
+  civic_community:
+    description: "Religious, civic, government services"
+    includes:
+      - "Religious Organizations"
+      - "Civic and Social Organizations"
+      - "Social Advocacy Organizations"
+      - "Business, Professional, Labor, Political, and Similar Organizations"
+      - "Executive, Legislative, and Other General Government Support"
+      - "Justice, Public Order, and Safety Activities"
+      - "Administration of Human Resource Programs"
+      - "Administration of Economic Programs"
+      - "Postal Service"
+    notes: "Community anchor institutions"
+
+
+# ============================================================================
+# EXCLUDED CATEGORIES
+# ============================================================================
+
+excluded_categories:
+
+  # K-12 and childcare - NOT in US SafeGraph data
+  k12_childcare:
+    reason: "US SafeGraph excludes K-12 schools and childcare (privacy/children's locations)"
+    includes:
+      - "Elementary and Secondary Schools"
+      - "Child Day Care Services"
+
+  # Healthcare providers - NOT in US SafeGraph data (HIPAA)
+  healthcare_providers:
+    reason: "US SafeGraph excludes healthcare provider visits (HIPAA privacy concerns)"
+    includes:
+      - "Offices of Physicians"
+      - "Offices of Dentists"
+      - "Offices of Other Health Practitioners"
+      - "Outpatient Care Centers"
+      - "General Medical and Surgical Hospitals"
+      - "Specialty (except Psychiatric and Substance Abuse) Hospitals"
+      - "Medical and Diagnostic Laboratories"
+      - "Home Health Care Services"
+      - "Other Ambulatory Health Care Services"
+      - "Nursing Care Facilities (Skilled Nursing Facilities)"
+      - "Continuing Care Retirement Communities and Assisted Living Facilities for the Elderly"
+      - "Nursing and Residential Care Facilities"
+
+  # Transit infrastructure - Sweden only, different data source
+  transit_infrastructure:
+    reason: "Sweden-only; will use GTFS for transit access analysis"
+    includes:
+      - "Urban Transit Systems"
+      - "Transit and Ground Passenger Transportation"
+      - "Interurban and Rural Bus Transportation"
+      - "Other Transit and Ground Passenger Transportation"
+      - "Charter Bus Industry"
+      - "School and Employee Bus Transportation"
+      - "Rail Transportation"
+      - "Support Activities for Rail Transportation"
+
+  # Real estate offices - not visitor destinations
+  real_estate:
+    reason: "Office locations, not visitor destinations"
+    includes:
+      - "Activities Related to Real Estate"
+      - "Lessors of Real Estate"
+      - "Offices of Real Estate Agents and Brokers"
+      - "Lessors of Nonfinancial Intangible Assets (except Copyrighted Works)"
+
+  # Construction/industrial - not public venues
+  construction_industrial:
+    reason: "Workplace/industrial, not public social mixing venues"
+    includes:
+      - "Residential Building Construction"
+      - "Nonresidential Building Construction"
+      - "Foundation, Structure, and Building Exterior Contractors"
+      - "Building Equipment Contractors"
+      - "Building Finishing Contractors"
+      - "Other Specialty Trade Contractors"
+      - "Highway, Street, and Bridge Construction"
+      - "Land Subdivision"
+      - "Utility System Construction"
+
+  # Warehousing/logistics - not public
+  warehousing_logistics:
+    reason: "Not public venues"
+    includes:
+      - "Warehousing and Storage"
+      - "Couriers and Express Delivery Services"
+      - "General Freight Trucking"
+      - "Specialized Freight Trucking"
+      - "Freight Transportation Arrangement"
+      - "Support Activities for Road Transportation"
+
+  # Manufacturing - not public
+  manufacturing:
+    reason: "Industrial facilities, not public venues"
+    includes:
+      - "all *Manufacturing categories"
+
+  # Agriculture/mining - not urban social mixing
+  primary_industry:
+    reason: "Not urban social mixing venues"
+    includes:
+      - "all Farming, Mining, Extraction categories"
+
+
+# ============================================================================
+# MAPPING NOTES
+# ============================================================================
+
+mapping_notes:
+
+  total_unified_categories: 12  # 11 + education_higher (K-12 excluded)
+
+  key_comparisons:
+    - name: "Food/Dining vs Automotive ratio"
+      description: "Expect US to have higher automotive share due to car dependency"
+      hypothesis: "Sweden food_dining / automotive > US food_dining / automotive"
+
+    - name: "Healthcare accessibility"
+      description: "Test if transit accessibility affects healthcare POI diversity"
+
+    - name: "Entertainment destination patterns"
+      description: "Large entertainment venues may show wider catchments near transit"
+
+  implementation:
+    - step: "1. Create category mapping dictionary"
+      file: "src/data/category_mapper.py"
+    - step: "2. Apply to Swedish assigned stops"
+      file: "src/data/aggregate_flows.py"
+    - step: "3. Apply to US weekly patterns"
+      file: "src/data/usa_processor.py"
+    - step: "4. Validate category distribution"
+      notebook: "notebooks/08_unified_category_validation.ipynb"

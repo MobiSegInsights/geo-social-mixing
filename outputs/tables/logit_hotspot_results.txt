@@ -1,0 +1,29 @@
+LOGISTIC REGRESSION: PREDICTING TRANSIT-MIXING HOTSPOTS
+======================================================================
+
+Data: birth_background_all (all POIs pooled, no category stratification)
+
+Sweden:
+                       Coef   Std Err          z         P>|z|  Odds Ratio       OR 95% CI
+Variable                                                                                  
+const             -4.183398  0.048820 -85.689458  0.000000e+00    0.015247  [0.014, 0.017]
+dist_to_center_km  0.040404  0.014241   2.837166  4.551592e-03    1.041231  [1.013, 1.071]
+poi_density_500m  -0.614044  0.061212 -10.031416  1.109149e-23    0.541158  [0.480, 0.610]
+dist_to_transit_m -0.070936  0.040453  -1.753530  7.951100e-02    0.931521  [0.861, 1.008]
+
+Pseudo R-squared: 0.0249
+ROC-AUC: 0.6881
+Accuracy: 0.9825
+
+US:
+                       Coef   Std Err          z          P>|z|  Odds Ratio       OR 95% CI
+Variable                                                                                   
+const             -0.159737  0.004551 -35.102749  6.120285e-270    0.852368  [0.845, 0.860]
+dist_to_center_km  0.013528  0.005415   2.498318   1.247841e-02    1.013620  [1.003, 1.024]
+poi_density_500m  -0.294864  0.005545 -53.175752   0.000000e+00    0.744633  [0.737, 0.753]
+dist_to_transit_m  0.083703  0.005527  15.145408   8.124884e-52    1.087306  [1.076, 1.099]
+
+Pseudo R-squared: 0.0167
+ROC-AUC: 0.5415
+Accuracy: 0.5356
+

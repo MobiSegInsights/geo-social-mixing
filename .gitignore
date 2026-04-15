@@ -1,0 +1,31 @@
+# OS/IDE
+.DS_Store
+.idea
+.vscode
+
+# Data (too large for git)
+dbs
+
+# Vendored dependencies (install locally)
+infostop
+
+# Python
+*.pyc
+__pycache__
+.ipynb_checkpoints
+
+# R
+.Rhistory
+.Rproj.user
+
+# Environment/secrets
+.env
+
+# Internal/development files
+main.py
+.claude
+CLAUDE.md
+CLEANUP_PLAN.md
+
+# Archived files (deprecated/exploratory)
+archive
