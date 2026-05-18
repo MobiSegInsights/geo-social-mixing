@@ -34,72 +34,79 @@ city_config <- config$cities[[opt$city]]
 # ============================================================================
 
 clean_single_gtfs <- function(gtfs, prefix = NULL) {
+  # Helper to add prefix only if not already present (avoids double-prefixing)
+  add_prefix_safe <- function(x, prefix) {
+    prefix_pattern <- paste0("^", prefix, "_")
+    already_has <- grepl(prefix_pattern, as.character(x))
+    ifelse(already_has, x, paste0(prefix, "_", x))
+  }
+
   # Add prefix to IDs to avoid conflicts when merging
   if (!is.null(prefix) && nzchar(prefix)) {
     cat(sprintf("  Adding prefix '%s' to IDs...\n", prefix))
 
     # Prefix route_id
     if (!is.null(gtfs$routes) && nrow(gtfs$routes) > 0) {
-      gtfs$routes[, route_id := paste0(prefix, "_", route_id)]
+      gtfs$routes[, route_id := add_prefix_safe(route_id, prefix)]
     }
 
     # Prefix trip_id and update route_id reference
     if (!is.null(gtfs$trips) && nrow(gtfs$trips) > 0) {
-      gtfs$trips[, trip_id := paste0(prefix, "_", trip_id)]
-      gtfs$trips[, route_id := paste0(prefix, "_", route_id)]
+      gtfs$trips[, trip_id := add_prefix_safe(trip_id, prefix)]
+      gtfs$trips[, route_id := add_prefix_safe(route_id, prefix)]
       if ("shape_id" %in% names(gtfs$trips) && any(!is.na(gtfs$trips$shape_id))) {
-        gtfs$trips[!is.na(shape_id), shape_id := paste0(prefix, "_", shape_id)]
+        gtfs$trips[!is.na(shape_id), shape_id := add_prefix_safe(shape_id, prefix)]
       }
       if ("service_id" %in% names(gtfs$trips)) {
-        gtfs$trips[, service_id := paste0(prefix, "_", service_id)]
+        gtfs$trips[, service_id := add_prefix_safe(service_id, prefix)]
       }
     }
 
     # Prefix stop_id
     if (!is.null(gtfs$stops) && nrow(gtfs$stops) > 0) {
-      gtfs$stops[, stop_id := paste0(prefix, "_", stop_id)]
+      gtfs$stops[, stop_id := add_prefix_safe(stop_id, prefix)]
       if ("parent_station" %in% names(gtfs$stops) && any(!is.na(gtfs$stops$parent_station) & gtfs$stops$parent_station != "")) {
-        gtfs$stops[!is.na(parent_station) & parent_station != "", parent_station := paste0(prefix, "_", parent_station)]
+        gtfs$stops[!is.na(parent_station) & parent_station != "", parent_station := add_prefix_safe(parent_station, prefix)]
       }
     }
 
     # Prefix stop_times references
     if (!is.null(gtfs$stop_times) && nrow(gtfs$stop_times) > 0) {
-      gtfs$stop_times[, trip_id := paste0(prefix, "_", trip_id)]
-      gtfs$stop_times[, stop_id := paste0(prefix, "_", stop_id)]
+      gtfs$stop_times[, trip_id := add_prefix_safe(trip_id, prefix)]
+      gtfs$stop_times[, stop_id := add_prefix_safe(stop_id, prefix)]
     }
 
     # Prefix shapes
     if (!is.null(gtfs$shapes) && nrow(gtfs$shapes) > 0) {
-      gtfs$shapes[, shape_id := paste0(prefix, "_", shape_id)]
+      gtfs$shapes[, shape_id := add_prefix_safe(shape_id, prefix)]
     }
 
     # Prefix calendar
     if (!is.null(gtfs$calendar) && nrow(gtfs$calendar) > 0) {
-      gtfs$calendar[, service_id := paste0(prefix, "_", service_id)]
+      gtfs$calendar[, service_id := add_prefix_safe(service_id, prefix)]
     }
 
     # Prefix calendar_dates
     if (!is.null(gtfs$calendar_dates) && nrow(gtfs$calendar_dates) > 0) {
-      gtfs$calendar_dates[, service_id := paste0(prefix, "_", service_id)]
+      gtfs$calendar_dates[, service_id := add_prefix_safe(service_id, prefix)]
     }
 
     # Prefix frequencies
     if (!is.null(gtfs$frequencies) && nrow(gtfs$frequencies) > 0) {
-      gtfs$frequencies[, trip_id := paste0(prefix, "_", trip_id)]
+      gtfs$frequencies[, trip_id := add_prefix_safe(trip_id, prefix)]
     }
 
     # Prefix transfers
     if (!is.null(gtfs$transfers) && nrow(gtfs$transfers) > 0) {
-      gtfs$transfers[, from_stop_id := paste0(prefix, "_", from_stop_id)]
-      gtfs$transfers[, to_stop_id := paste0(prefix, "_", to_stop_id)]
+      gtfs$transfers[, from_stop_id := add_prefix_safe(from_stop_id, prefix)]
+      gtfs$transfers[, to_stop_id := add_prefix_safe(to_stop_id, prefix)]
     }
 
     # Prefix agency
     if (!is.null(gtfs$agency) && nrow(gtfs$agency) > 0 && "agency_id" %in% names(gtfs$agency)) {
-      gtfs$agency[, agency_id := paste0(prefix, "_", agency_id)]
+      gtfs$agency[, agency_id := add_prefix_safe(agency_id, prefix)]
       if (!is.null(gtfs$routes) && "agency_id" %in% names(gtfs$routes)) {
-        gtfs$routes[, agency_id := paste0(prefix, "_", agency_id)]
+        gtfs$routes[, agency_id := add_prefix_safe(agency_id, prefix)]
       }
     }
   }

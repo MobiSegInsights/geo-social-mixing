@@ -1,0 +1,33 @@
+\begin{table}[htbp]
+\centering
+\caption{Logistic Regression Predicting Transit-Mixing Hotspots}
+\label{tab:logit_hotspot}
+\small
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{Sweden} & \multicolumn{2}{c}{United States} \\
+\cmidrule(lr){2-3} \cmidrule(lr){4-5}
+Variable & OR [95\% CI] & & OR [95\% CI] & \\
+\midrule
+\quad Distance to center (km) & 0.111 [0.081, 0.151]*** & & 1.171 [1.158, 1.185]*** & \\
+\quad POI density (500m) & 0.705 [0.646, 0.769]*** & & 0.956 [0.945, 0.967]*** & \\
+\quad Transit proximity (m) & 3.934 [0.297, 52.136] & & 1.301 [1.284, 1.318]*** & \\
+\addlinespace[3pt]
+\textit{Model Performance} & & & & \\
+\quad Pseudo $R^2$ & 0.026 & & 0.023 & \\
+\quad ROC-AUC & 0.673 & & 0.582 & \\
+\quad Accuracy & 0.991 & & 0.721 & \\
+\quad Sensitivity & 0.000 & & 0.044 & \\
+\quad Specificity & 1.000 & & 0.983 & \\
+\addlinespace[3pt]
+\quad N & 97,782 & & 194,312 & \\
+\quad Hotspots (\%) & 0.9 & & 27.9 & \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: Odds ratios (OR) with 95\% confidence intervals. Predictors are standardized (1 unit = 1 SD).
+\item * p<0.05, ** p<0.01, *** p<0.001.
+\item Data source: birth\_background\_all GWR results (all POIs pooled).
+\end{tablenotes}
+\end{table}

@@ -51,7 +51,7 @@
       "output_dir": "dbs/routing/sweden_c01",
       "destinations_file": "dbs/routing/sweden_c01/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c03": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_03",
@@ -59,7 +59,7 @@
       "output_dir": "dbs/routing/sweden_c03",
       "destinations_file": "dbs/routing/sweden_c03/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c04": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_04",
@@ -67,7 +67,7 @@
       "output_dir": "dbs/routing/sweden_c04",
       "destinations_file": "dbs/routing/sweden_c04/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c05": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_05",
@@ -75,7 +75,7 @@
       "output_dir": "dbs/routing/sweden_c05",
       "destinations_file": "dbs/routing/sweden_c05/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c06": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_06",
@@ -83,7 +83,7 @@
       "output_dir": "dbs/routing/sweden_c06",
       "destinations_file": "dbs/routing/sweden_c06/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c07": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_07",
@@ -91,7 +91,7 @@
       "output_dir": "dbs/routing/sweden_c07",
       "destinations_file": "dbs/routing/sweden_c07/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c08": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_08",
@@ -99,7 +99,7 @@
       "output_dir": "dbs/routing/sweden_c08",
       "destinations_file": "dbs/routing/sweden_c08/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c09": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_09",
@@ -107,7 +107,7 @@
       "output_dir": "dbs/routing/sweden_c09",
       "destinations_file": "dbs/routing/sweden_c09/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c10": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_10",
@@ -115,7 +115,7 @@
       "output_dir": "dbs/routing/sweden_c10",
       "destinations_file": "dbs/routing/sweden_c10/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c12": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_12",
@@ -123,7 +123,7 @@
       "output_dir": "dbs/routing/sweden_c12",
       "destinations_file": "dbs/routing/sweden_c12/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c13": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_13",
@@ -131,7 +131,7 @@
       "output_dir": "dbs/routing/sweden_c13",
       "destinations_file": "dbs/routing/sweden_c13/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c14": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_14",
@@ -139,7 +139,7 @@
       "output_dir": "dbs/routing/sweden_c14",
       "destinations_file": "dbs/routing/sweden_c14/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c17": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_17",
@@ -147,7 +147,7 @@
       "output_dir": "dbs/routing/sweden_c17",
       "destinations_file": "dbs/routing/sweden_c17/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c18": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_18",
@@ -155,7 +155,7 @@
       "output_dir": "dbs/routing/sweden_c18",
       "destinations_file": "dbs/routing/sweden_c18/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     },
     "sweden_c19": {
       "transport_network_dir": "dbs/gtfs/sweden_south/c_19",
@@ -163,7 +163,7 @@
       "output_dir": "dbs/routing/sweden_c19",
       "destinations_file": "dbs/routing/sweden_c19/deso_centroids.csv",
       "timezone": "Europe/Stockholm",
-      "departure_datetime": "2024-03-12 08:00:00"
+      "departure_datetime": "2026-05-22 08:00:00"
     }
   }
 }

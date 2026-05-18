@@ -27,29 +27,26 @@ geo-social-mixing/
 ├── r_scripts/                  # R scripts for transit routing
 │   ├── clean_gtfs.R           # GTFS data cleaning
 │   ├── compute_transit_catchment.R   # Transit accessibility computation
-│   ├── compute_transit_isochrone.R   # Isochrone calculation
-│   ├── validate_merge_gtfs.R  # GTFS validation
-│   └── r5r_config.json        # r5r routing configuration
+│   └── validate_merge_gtfs.R  # GTFS validation
 │
 ├── src/                        # Python source code
-│   ├── data/                  # Data processing scripts
-│   ├── features/              # Feature engineering (diversity metrics)
-│   ├── analysis/              # Spatial analysis (LISA, hotspots)
-│   └── models/                # Regression models (OLS, SLM, GWR)
+│   ├── data/                  # Data processing and harmonization
+│   ├── features/              # Feature engineering (diversity, spatial controls)
+│   ├── analysis/              # Spatial analysis (LISA, hotspots, correlations)
+│   ├── models/                # Regression models (OLS, SLM, GWR, robustness)
+│   └── visualization/         # Plotting utilities (GWR coefficients)
 │
 ├── notebooks/                  # Jupyter notebooks
 │   ├── 01-14_*.ipynb         # Data preparation and exploration
 │   ├── 15_compute_diversity_metrics.ipynb   # Core diversity computation
-│   ├── 17-*_spatial_analysis_*.ipynb        # Spatial analysis exploration
-│   └── 20_publication_figures.ipynb         # Manuscript figures
+│   └── 16_publication_figures.ipynb         # Manuscript figures and tables
 │
-├── outputs/                    # Results and manuscript
-│   ├── frontiers.tex          # Main manuscript (LaTeX)
-│   ├── frontiers_SupplementaryMaterial.tex
+├── outputs/                    # Results
 │   ├── figures/               # Publication figures
 │   ├── tables/                # Result tables
 │   ├── phase2/                # Spatial regression results
-│   └── phase3/                # GWR results
+│   ├── phase3/                # GWR results
+│   └── robustness/            # Robustness check results
 │
 └── .devcontainer/              # Docker development environment
     └── environment.yml        # Conda environment specification
@@ -110,7 +107,7 @@ The analysis proceeds in the below steps with notebooks in the brackets serving 
 
 7. `notebooks/04` — Download SafeGraph POIs for Sweden (manual)
 8. `notebooks/06` — Download US foot traffic data
-9. `notebooks/07-09` — POI category alignment → `src/data/category_mapper.py`
+9. `notebooks/07` — POI category alignment → `src/data/category_mapper.py`
 
 **Flow aggregation and filtering (Steps 10-12)**
 
@@ -118,21 +115,31 @@ The analysis proceeds in the below steps with notebooks in the brackets serving 
 11. `src/data/filter_us_cities.py` — Filter US data to study cities (`notebooks/11`)
 12. `notebooks/12` — Download US census data
 
-**Transit catchment and diversity metrics (Steps 13-14)**
+**Transit catchment and diversity metrics (Steps 13-15)**
 
 13. `notebooks/13-14` — Transit catchment data preparation → `r_scripts/` (r5r routing)
-14. `notebooks/15` — Compute diversity metrics using `src/features/diversity_metrics.py`
+14. `src/features/filter_sweden_gtfs_by_county.py` — Filter Swedish GTFS by county
+15. `notebooks/15` — Compute diversity metrics using `src/features/diversity_metrics.py`
 
-**Spatial analysis and modeling (Steps 15-18)**
+**Feature engineering (Steps 16-17)**
 
-15. `src/analysis/compute_lisa_clusters.py` — LISA cluster analysis
-16. `src/models/run_spatial_spillover_analysis.py` — OLS and spatial lag models
-17. `src/models/run_mgwr_analysis.py` — Geographically weighted regression
-18. `src/analysis/hotspot_transit_proximity.py` — Transit proximity hotspot analysis
+16. `src/features/compute_geographic_catchment.py` — Geographic (walkshed) catchment diversity
+17. `src/features/compute_spatial_controls.py` — Distance to center, POI density, transit proximity
 
-**Results and figures (Step 19)**
+**Spatial analysis and modeling (Steps 18-21)**
 
-19. `notebooks/16` — Statistical tests, figures, and tables for publication
+18. `src/analysis/compute_lisa_clusters.py` — LISA cluster analysis
+19. `src/models/run_spatial_spillover_analysis.py` — OLS and spatial lag models
+20. `src/models/run_mgwr_analysis.py` — Geographically weighted regression
+21. `src/analysis/hotspot_transit_proximity.py` — Transit proximity hotspot analysis
+
+**Robustness checks (Step 22)**
+
+22. `src/models/run_stepwise_robustness.py` — Stepwise OLS with incremental controls
+
+**Results and figures (Step 23)**
+
+23. `notebooks/16` — Statistical tests, figures, and tables for publication
 
 ## License
 

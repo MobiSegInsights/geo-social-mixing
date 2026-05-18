@@ -26,6 +26,13 @@ main.py
 .claude
 CLAUDE.md
 CLEANUP_PLAN.md
+Revision 1.md
+REVISION_EXECUTION_PLAN.md
+
+# Other outputs
+outputs/od_flows
+outputs/gtfs_validation.log
+notebooks/17_swedish_od_flows_grant_figure.ipynb
 
 # Archived files (deprecated/exploratory)
 archive
